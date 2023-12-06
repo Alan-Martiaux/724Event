@@ -21,7 +21,8 @@ const Page = () => {
   );
 
   // Selection du premier element du tableau trié
-  const lastDate = TrieDate[0];
+  const last = TrieDate?.[0];
+
   return (
     <>
       <header>
@@ -123,11 +124,11 @@ const Page = () => {
         <div className="col presta">
           <h3>Notre derniére prestation</h3>
           <EventCard
-            imageSrc={lastDate.cover}
-            title={lastDate.title}
-            date={new Date(lastDate.date)}
+            imageSrc={last?.cover}
+            title={last?.title}
+            date={new Date(last?.date)}
             small
-            label={lastDate.type}
+            label={last?.type}
           />
         </div>
         <div className="col contact">

@@ -38,6 +38,9 @@
         min-width: 0;
         color: $primary;
       }
+      &--hide {
+        opacity: 0;
+      }
     }
     &__description {
       left: 0;

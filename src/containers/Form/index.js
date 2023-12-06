@@ -26,6 +26,8 @@ const Form = ({ onSuccess, onError }) => {
     },
     [onSuccess, onError]
   );
+  // Ajout de onclick success pour activer la modil a l'envoie du formulaire
+  // corriger erreur envoie même si form vide !!!
   return (
     <form onSubmit={sendContact}>
       <div className="row">
@@ -39,8 +41,13 @@ const Form = ({ onSuccess, onError }) => {
             type="large"
             titleEmpty
           />
-          <Field placeholder="" label="Email" />
-          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+          <Field placeholder="" label="Email" type={FIELD_TYPES.INPUT_EMAIL} />
+
+          <Button
+            type={BUTTON_TYPES.SUBMIT}
+            disabled={sending}
+            onClick={onSuccess}
+          >
             {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>

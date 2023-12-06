@@ -6,7 +6,7 @@ import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
 
 import "./style.css";
-// nombres de reélisations sur la page :
+// nombres de réalisations sur la page :
 const PER_PAGE = 9;
 //-----------------------------------
 const EventList = () => {

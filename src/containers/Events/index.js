@@ -19,20 +19,16 @@ const EventList = () => {
       (!type
         ? data?.events
         : data?.events.filter((event) => event.type === type)) || []
-    ).filter(
-      // event n'est pas utilisé
-      (event, index) => {
-        if (
-          // Gère nombre d'élément sur la pages ? Pas de filtre sur les labels ?
-          (currentPage - 1) * PER_PAGE <= index &&
-          PER_PAGE * currentPage > index
-        ) {
-          return true;
-        }
-
-        return false;
+    ).filter((event, index) => {
+      if (
+        (currentPage - 1) * PER_PAGE <= index &&
+        PER_PAGE * currentPage > index
+      ) {
+        return true;
       }
-    );
+
+      return false;
+    });
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);

@@ -15,12 +15,16 @@ const Slider = () => {
 
   // Gestion defilement
   const nextCard = () => {
-    setTimeout(
-      // Ajout de -1 pour defilement continu
-      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
-      5000
-    );
+    // dit que si on a bydatedesc on peux lancer le defilemnt
+    if (byDateDesc) {
+      setTimeout(
+        // Ajout de -1 pour defilement continu
+        () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
+        5000
+      );
+    }
   };
+
   useEffect(() => {
     nextCard();
   });
@@ -29,7 +33,7 @@ const Slider = () => {
       {byDateDesc?.map((event, idx) => (
         <>
           <div
-            key={event.title}
+            key={event.id}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
@@ -49,10 +53,11 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={`${event.id}`}
+                  key={`${_.date}`}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx}
+                  onChange={() => setIndex(radioIdx)}
                 />
               ))}
             </div>

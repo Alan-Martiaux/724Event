@@ -5,8 +5,9 @@ import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
 
 const mockContactApi = () =>
+  // Reduction du temps
   new Promise((resolve) => {
-    setTimeout(resolve, 1000);
+    setTimeout(resolve, 900);
   });
 
 const Form = ({ onSuccess, onError }) => {
